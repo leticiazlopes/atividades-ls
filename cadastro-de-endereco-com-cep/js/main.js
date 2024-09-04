@@ -13,19 +13,10 @@ async function getCepValues(cep) {
 cepInput.onchange = async () => {
     const cep = cepInput.value
 
-    const street = await getCepValues(cep);
-    streetInput.value = street.logradouro;
-
-    const neighborhood = await getCepValues(cep);
-    neighborhoodInput.value = neighborhood.bairro;
-
-    const state = await getCepValues(cep);
-    stateInput.value = state.uf;
-
-    const city = await getCepValues(cep);
-    cityInput.value = city.localidade;
-    
-    //get na api
-
+    const {logradouro, bairro, uf, localidade} = await getCepValues(cep)
+    streetInput.value = logradouro;
+    neighborhoodInput.value = bairro;
+    stateInput.value = uf;
+    cityInput.value = localidade;
 }
     
